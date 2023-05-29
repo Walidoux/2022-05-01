@@ -1,0 +1,38 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "Retro",
+  "scopeName": "source.retro",
+  "patterns": [
+    {
+      "include": "#keywords"
+    },
+    {
+      "include": "#strings"
+    }
+  ],
+  "repository": {
+    "keywords": {
+      "patterns": [
+        {
+          "name": "keyword.control.retro",
+          "match": "\\b(declare|extends|for|return)\\b"
+        },
+        {
+          "name": "variable.language",
+          "match": "[a-zA-Z]\\w*"
+        }
+      ]
+    },
+    "strings": {
+      "name": "string.quoted.double.retro",
+      "begin": "\"",
+      "end": "\"",
+      "patterns": [
+        {
+          "name": "constant.character.escape.retro",
+          "match": "\\\\."
+        }
+      ]
+    }
+  }
+}

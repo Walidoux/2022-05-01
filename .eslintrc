@@ -1,0 +1,8 @@
+{
+  "extends": ["@walidoux/eslint-config"],
+  "rules": {
+    "@typescript-eslint/dot-notation": "off",
+    "arrow-body-style": "off",
+    "new-cap": "off"
+  }
+}

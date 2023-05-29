@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "compilerOptions": {
+    "strict": true,
+    "noImplicitAny": false,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "resolveJsonModule": true,
+    "strictNullChecks": true
+
+    /*     "target": "ESNext",
+    "module": "CommonJS",
+    "lib": ["ESNext"],
+    "composite": false,
+    "declaration": true,
+    "sourceMap": true,
+    "useDefineForClassFields": true,
+    "declarationMap": true,
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "preserveWatchOutput": true */
+  }
+}
