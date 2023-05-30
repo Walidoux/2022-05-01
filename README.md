@@ -32,7 +32,7 @@ The language will handle both the hotel code `myscript.retro` and room code `mys
 - To start using your extension with Visual Studio Code copy it into the `<user home>/.vscode/extensions` folder and restart Code.
 - To share your extension with the world, read on <https://code.visualstudio.com/docs> about publishing an extension.
 
-## [How the interpreter works](https://www.notion.so/walid-projects/PL-Retro-Development-32f26246266047a5b8c174388f69f688?pvs=4)
+## [How the interpreter works](https://walid-projects.notion.site/PL-Retro-Development-32f26246266047a5b8c174388f69f688)
 
 ## Resources
 
