@@ -18,12 +18,18 @@ class pRetroParser extends EmbeddedActionsParser {
     super(pRetroTokens)
 
     this.RULE('room', () => {
-      this.OPTION(() => this.SUBRULE(this['eventStatement']))
-      this.OPTION2(() => this.SUBRULE(this['structStatement']))
+      this.MANY(() => this.SUBRULE(this['onEventStatement']))
+      this.MANY2(() => this.SUBRULE(this['everyEventStatement']))
+      this.MANY3(() => this.SUBRULE(this['structStatement']))
     })
 
-    this.RULE('eventStatement', () => {
-      const EventToken = this.CONSUME(pRetroSyntax.Event)
+    this.RULE('everyEventStatement', () => {
+      this.CONSUME(pRetroSyntax.EveryEvent)
+      this.CONSUME(pRetroSyntax.Colon)
+    })
+
+    this.RULE('onEventStatement', () => {
+      const EventToken = this.CONSUME(pRetroSyntax.OnEvent)
       const EventParamTokens: IToken[] = []
 
       this.OPTION(() => {

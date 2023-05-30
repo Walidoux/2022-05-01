@@ -1,6 +1,6 @@
 import { Lexer, createToken } from 'chevrotain'
 
-import { EventsList } from './utils'
+import { EventsList, TimeUnits } from './utils'
 
 // Defining Token Definitions
 
@@ -8,12 +8,8 @@ const Identifier = createToken({ name: 'Identifier', pattern: /[A-Za-z]\w*/ })
 
 const Declare = createToken({ name: 'Declare', pattern: /declare/, longer_alt: Identifier })
 const Extends = createToken({ name: 'Extends', pattern: /extends/, longer_alt: Identifier })
-const Event = createToken({
-  name: 'Event',
-  pattern: new RegExp(`(${EventsList.map((event) => event.name).join('|')})`)
-})
-
-const Params = (params: string[]) => createToken({ name: `Params`, pattern: new RegExp(`(${params.join('|')})`) })
+const OnEvent = createToken({ name: 'OnEvent', pattern: new RegExp(`(${EventsList.map((event) => event.name).join('|')})`) })
+const EveryEvent = createToken({ name: 'EveryEvent', pattern: new RegExp(`(every ([0-9]+(?:\\.[0-9]+)?) (${TimeUnits.join('|')})s?)`) })
 
 const LCurly = createToken({ name: 'LCurly', pattern: /{/ })
 const RCurly = createToken({ name: 'RCurly', pattern: /}/ })
@@ -59,7 +55,8 @@ export const pRetroTokens = [
 
   Declare,
   Extends,
-  Event,
+  OnEvent,
+  EveryEvent,
   Identifier
 ]
 
@@ -68,7 +65,6 @@ export const pRetroSyntax = {
   Identifier,
   Declare,
   Extends,
-  Params,
   Comma,
   Colon,
   LCurly,
@@ -77,7 +73,8 @@ export const pRetroSyntax = {
   RParent,
   StringLiteral,
   NumberLiteral,
-  Event,
+  OnEvent,
+  EveryEvent,
   True,
   False
 }
