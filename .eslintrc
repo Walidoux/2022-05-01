@@ -1,6 +1,7 @@
 {
   "extends": ["@walidoux/eslint-config"],
   "rules": {
+    "@typescript-eslint/explicit-function-return-type": "off",
     "@typescript-eslint/dot-notation": "off",
     "arrow-body-style": "off",
     "new-cap": "off"

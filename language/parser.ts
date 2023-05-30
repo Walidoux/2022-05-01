@@ -1,10 +1,13 @@
 import { readFile } from 'node:fs'
 import { extname } from 'node:path'
 
+import type { IToken } from 'chevrotain'
 import { EmbeddedActionsParser } from 'chevrotain'
 
 import { pRetroLexer, pRetroSyntax, pRetroTokens } from './lexer'
 import type { SupportedFileExts } from './types'
+import { EventsList } from './utils'
+import { RetroEvent } from './RetroEvent'
 
 // PARSER: Only recognizes the language and not output any data structure (yet).
 
@@ -20,16 +23,33 @@ class pRetroParser extends EmbeddedActionsParser {
     })
 
     this.RULE('eventStatement', () => {
-      this.CONSUME(pRetroSyntax.Event)
+      const EventToken = this.CONSUME(pRetroSyntax.Event)
+      const EventParamTokens: IToken[] = []
+
       this.OPTION(() => {
         this.CONSUME(pRetroSyntax.LParent)
         this.AT_LEAST_ONE_SEP({
           SEP: pRetroSyntax.Comma,
-          DEF: () => this.CONSUME(pRetroSyntax.Identifier)
+          DEF: () => EventParamTokens.push(this.CONSUME(pRetroSyntax.Identifier))
         })
         this.CONSUME(pRetroSyntax.RParent)
       })
+
       this.CONSUME(pRetroSyntax.Colon)
+
+      return this.ACTION(() => {
+        const EventBuilder = EventsList.find((event) => event.name === EventToken.image) as (typeof EventsList)[number]
+
+        const EventParams = {}
+        EventParamTokens.forEach((param) => {
+          if (!EventBuilder.params.includes(param.image))
+            throw new Error(`Cannot recognize "${param.image}" parameter inside of "${EventBuilder.name}" event`)
+          else return (EventParams[param.image] = null)
+        })
+
+        const Event = new RetroEvent({ name: EventBuilder.name, params: EventParams })
+        return console.log(Event._events)
+      })
     })
 
     this.RULE('structStatement', () => {

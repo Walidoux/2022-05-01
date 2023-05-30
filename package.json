@@ -9,18 +9,17 @@
     "dev": "ts-node-dev --respawn --cls language/parser.ts",
     "start": "ts-node language/parser.ts"
   },
-
   "prettier": "@walidoux/prettier-config",
   "dependencies": {
     "chevrotain": "^10.5.0",
-    "ts-node-dev": "2.0.0",
     "ts-node": "10.9.1",
+    "ts-node-dev": "2.0.0",
     "typescript": "5.0.4"
   },
   "devDependencies": {
     "@types/node": "20.2.5",
-    "@walidoux/prettier-config": "1.0.3",
-    "@walidoux/eslint-config": "1.0.3"
+    "@walidoux/eslint-config": "1.0.3",
+    "@walidoux/prettier-config": "1.0.3"
   },
   "engines": {
     "vscode": "^1.78.0"
