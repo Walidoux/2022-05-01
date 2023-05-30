@@ -20,6 +20,8 @@ on talk: // user sent a message
 on move: // user moves around the room
 on stalk: // user clicks on an another user
 on $mobi(s) click: // user clicks on a mobi
+on user stands on $mobi(s):
+on user leaves $mobi(s):
 
 // Timestamps
 every 2 seconds:

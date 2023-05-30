@@ -6,7 +6,7 @@
 
 teleport {entity} to {entity}
 move {mobi(s)} to {x}, {y}, {z} // could be entity's position
-make {entity} sit/lay/danse // or any actions
+make {entity} sit/lay/danse(4 types of dancing) // or any actions
 broadcast "my message"
 whisper "my message" to {entity}
 show new Popup(MyPopup) to {player}
@@ -18,14 +18,18 @@ effect {player} with $ID_ENABLE
 freeze {entity} for 10 seconds
 unfreeze {entity}
 kick player due to "my message"
+set player.speed for 10 seconds
+set player.rotation
 cancel event
 wait 3 seconds
 stop // for timestamps, acts like a preventDefault() event handler
 ```
 
 // change mobi state (interaction) like a double click
-change $mobi(s) state(s) by 4 times
-reset $mobi(s) state(s) to initial(position|direction|interaction)
+// position: (still|left|right|horizontal|vertical|top|bottom|all|random)
+// rotation (still|clockwise|counterclockwise|random)
+set $mobi(s) (position|rotation|interaction)
+reset $mobi(s) (position|rotation|interaction|states)
 
 // change speed of rollers
 set rollers speed to 2
