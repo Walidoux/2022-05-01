@@ -3,6 +3,7 @@ import { extname } from 'node:path'
 
 import type { IToken } from 'chevrotain'
 import { EmbeddedActionsParser } from 'chevrotain'
+import ms from 'ms'
 
 import { pRetroLexer, pRetroSyntax, pRetroTokens } from './lexer'
 import type { SupportedFileExts } from './types'
@@ -24,8 +25,14 @@ class pRetroParser extends EmbeddedActionsParser {
     })
 
     this.RULE('everyEventStatement', () => {
-      this.CONSUME(pRetroSyntax.EveryEvent)
+      const test = this.CONSUME(pRetroSyntax.EveryEvent)
       this.CONSUME(pRetroSyntax.Colon)
+
+      this.ACTION(() => {
+        const milliseconds = ms(test.image.replace('every', '').trim())
+        console.log(milliseconds)
+        // create a class that will handle setIntervals
+      })
     })
 
     this.RULE('onEventStatement', () => {

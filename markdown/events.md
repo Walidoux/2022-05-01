@@ -19,6 +19,7 @@ on lay: // user lays down
 on talk: // user sent a message
 on move: // user moves around the room
 on stalk: // user clicks on an another user
+on $mobi(s) click: // user clicks on a mobi
 
 // Timestamps
 every 2 seconds:

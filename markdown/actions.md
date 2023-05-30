@@ -20,4 +20,12 @@ unfreeze {entity}
 kick player due to "my message"
 cancel event
 wait 3 seconds
+stop // for timestamps, acts like a preventDefault() event handler
 ```
+
+// change mobi state (interaction) like a double click
+change $mobi(s) state(s) by 4 times
+reset $mobi(s) state(s) to initial(position|direction|interaction)
+
+// change speed of rollers
+set rollers speed to 2

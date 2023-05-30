@@ -12,11 +12,13 @@
   "prettier": "@walidoux/prettier-config",
   "dependencies": {
     "chevrotain": "^10.5.0",
+    "ms": "^2.1.3",
     "ts-node": "10.9.1",
     "ts-node-dev": "2.0.0",
     "typescript": "5.0.4"
   },
   "devDependencies": {
+    "@types/ms": "^0.7.31",
     "@types/node": "20.2.5",
     "@walidoux/eslint-config": "1.0.3",
     "@walidoux/prettier-config": "1.0.3"
