@@ -7,19 +7,6 @@ which can be either opened by the owner's room, the staff, or by simply giving p
 
 The language will handle both the hotel code `myscript.retro` and room code `myscript.room` but separately
 
-## To-do
-
-- [ ] Basics of the language: (Syntax/Grammar)
-
-  - [ ] Define the keywords, operators, and syntax of the language.
-  - [ ] Come up with a grammar that specifies how the language elements can be combined to form valid and logic code
-  - [ ] Write a Lexer to tokenize the input program into a stream of tokens that the parser can use.
-
-- [ ] Implementing a parser:
-  - [ ] Write a parser that reads the token stream produced by the lexer
-  - [ ] Generate an AST that represents the structure of the program.
-  - [ ] Use a parsing technique such as LL(k) or LR(k) to handle the grammar of the language.
-
 ## Features
 
 - [ ] Single-line and block comments
@@ -44,6 +31,8 @@ The language will handle both the hotel code `myscript.retro` and room code `mys
 
 - To start using your extension with Visual Studio Code copy it into the `<user home>/.vscode/extensions` folder and restart Code.
 - To share your extension with the world, read on <https://code.visualstudio.com/docs> about publishing an extension.
+
+## [How the interpreter works](https://www.notion.so/walid-projects/PL-Retro-Development-32f26246266047a5b8c174388f69f688?pvs=4)
 
 ## Resources
 
