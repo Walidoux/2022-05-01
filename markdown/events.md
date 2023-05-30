@@ -1,10 +1,10 @@
 # Examples
 
+They're two types of events: Triggeres / Timestamps
 Those events will be triggered/emitted when:
 
 ```cs
 
-/* .room */
 // Triggeres
 on first join: // user joins the room for the first time
 on room enter/leave: // user joins/leaves the room
@@ -18,6 +18,7 @@ on sit: // user sits down
 on lay: // user lays down
 on talk: // user sent a message
 on move: // user moves around the room
+on stalk: // user clicks on an another user
 
 // Timestamps
 every 2 seconds:
@@ -26,8 +27,6 @@ every 10 minutes:
 ```
 
 ## Rules
-
-- They're two types of events: Triggeres / Timestamps
 
 - ✅ an event must exist inside of pre-existing list of events
 - ✅ only lower case characters are allowed
